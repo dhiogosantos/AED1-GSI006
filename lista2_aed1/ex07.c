@@ -38,10 +38,10 @@ int main(){
 
     int i = 0;
     for(i = 0; i < tam; i++){
-        //imprimi o ultimo ponto digitado sem o final ter ponto e virgula
+        //imprime o ultimo ponto digitado sem ter ponto e virgula no final
         if(i == tam - 1){
             printf("(%d,%d)\n", p[i].x, p[i].y);
-        //imprime com a fortacao normal  
+        //imprime com a formatacao normal  
         } else {
         printf("(%d,%d); ", p[i].x, p[i].y);
         }
