@@ -38,7 +38,11 @@ int main(){
 
     int i = 0;
     for(i = 0; i < tam; i++){
+<<<<<<< HEAD
         //imprimi o ultimo ponto digitado sem ter ponto e virgula no final
+=======
+        //imprime o ultimo ponto digitado sem ter ponto e virgula no final
+>>>>>>> 643edfa301a198af4d3368518e51f14ec210588a
         if(i == tam - 1){
             printf("(%d,%d)\n", p[i].x, p[i].y);
         //imprime com a formatacao normal  
