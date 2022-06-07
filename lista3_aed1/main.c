@@ -14,15 +14,11 @@ struct Populacao {
     int tamanho; // tamanho N da população (N = 100)
 };
 
-//typedef struct Populacao populacao;
-
 int main(){
-
-    //populacao p;
+  
     struct Populacao p;
-    double soma_aptdao_absoluta = 0;
-    double sorteio;
-    int s1, s2, aux, aux1;
+    double soma_aptdao_absoluta = 0, sorteio;
+    int s1, s2;
 
     printf("Digite o tamanho da populacao (inteiro positivo entre 1 e 100): ");
     scanf("%d", &p.tamanho);
@@ -53,20 +49,32 @@ int main(){
     }             
     
     double sum_aptdRelativa = 0;
-    int cont = 0;
 
-    for (int i = 0; i < 50; i++){
-       sorteio = ((double) rand()) / ((double) RAND_MAX);        
-       for(int j = 0; j < p.pop[j].aptidao_relativa; j++){
+    for (int i = 0; i < 100; i++){                     
+        for(int j = 0; j < p.pop[j].aptidao_relativa; j++){
+            sorteio = ((double) rand()) / ((double) RAND_MAX);
            sum_aptdRelativa += p.pop[j].aptidao_relativa;
-            if(sum_aptdRelativa >= sorteio){                
-                printf("par_%d: (%d, s2)\n", cont, p.pop[j].codigo_genetico);
-                cont++;
+            if(sum_aptdRelativa >= sorteio){
+                s1 = j;
+                
             }
        }
        
-    } 
-
+        for(int j = 0; j < p.pop[j].aptidao_relativa; j++){
+            sorteio = ((double) rand()) / ((double) RAND_MAX);
+           sum_aptdRelativa += p.pop[j].aptidao_relativa;
+            if(sum_aptdRelativa >= sorteio){
+                s2 = j;
+                printf("sou s2=%d\n", s2);
+                          
+            }
+       }
+        
+       printf("par_%d = (%d, %d)\n", i, s1, s2);
+       sum_aptdRelativa = 0;       
+       s1 = 0;
+       s2 = 0;       
+    }
 
     return 0;
 }
