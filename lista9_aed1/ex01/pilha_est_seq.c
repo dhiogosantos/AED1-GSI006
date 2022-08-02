@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilha_est_seq_nao_ord.h"
+#include "pilha_est_seq.h"
 
 #define max 20
 

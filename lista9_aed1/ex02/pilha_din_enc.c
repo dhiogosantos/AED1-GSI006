@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "pilha_din_enc_nao_ord.h"
+#include "pilha_din_enc.h"
 
 struct no{
     int info;

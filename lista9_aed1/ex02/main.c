@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>
-#include "pilha_din_enc_nao_ord.h"
+#include "pilha_din_enc.h"
 
 int main(){
 
