@@ -1,0 +1,115 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <conio.h>
+#include "fila_din_enc_circ.h"
+
+int main(){
+
+    Fila fila;
+
+    int op;
+
+    do{
+        system("cls || clear");
+        do{
+            printf(" --- FILA DINAMICA ENCADEADA --- \n\n");
+            printf(" Escolha uma opcao:\n");
+            printf(" 1. Criar fila\n");
+            printf(" 2. Verificar fila vazia\n");            
+            printf(" 3. Inserir elemento\n");          
+            printf(" 4. Excluir elemento\n");   
+            printf(" 5. Imprimir fila\n");
+            printf(" 6. Ler o final da fila\n");
+            printf(" 7. SAIR\n");
+            printf(" Opcao: ");
+            scanf("%d", &op);
+            if((op < 1) || (op > 7)) {
+                printf("\n\n Opcao invalida! Tente novamente...\n\n");               
+            }
+        } while((op < 1) || (op > 7));
+
+        switch(op){
+
+            case 1:
+                printf("\n\n 1. Criar fila\n\n");
+                fila = criar_fila();                
+                printf("Fila criada com sucesso!\n");
+                printf("\n\nPressione qualquer tecla para continuar ...");
+
+                getch();
+                break;
+
+            case 2:
+                printf("\n\n 2. Verificar fila vazia\n\n");            
+                    if(fila_vazia(fila) == 0)                
+                        printf("Fila vazia!\n");
+                    else
+                        printf("Fila nao esta vazia!");
+
+                    printf("\n\nPressione qualquer tecla para continuar ...");
+                                    
+                    getch();
+                    break;
+
+            case 3:
+                printf("\n\n 3. Inserir elemento\n\n");          
+                int elem;
+
+                printf("Digite o elemento a ser inserido: ");
+                scanf("%d", &elem);
+
+                if(insere_fila(&fila, elem) == -1)
+                    printf("\nErro ao inserir elemento na fila!");
+                else
+                    printf("\nElemento inserido com sucesso!");
+                
+                printf("\nPressione qualquer tecla para continuar...\n\n");
+                                    
+                getch();
+                break;
+
+            case 4:
+                printf("\n\n 4. Excluir elemento\n\n");   
+                int elemento, res4;
+                              
+                res4 = remove_fila(&fila, &elemento);
+
+                if(res4 == -1)
+                    printf("Falha ao remover elemento, fila esta vazia!");
+                else
+                    printf("Elemento excluido: %d", elemento);
+
+                printf("\n\nPressione qualquer tecla para continuar ...");
+                                
+                getch();
+                break;
+
+            case 5:
+                printf("\n\n 5. Imprimir fila\n\n");
+                imprime_fila(fila);            
+                printf("\nFila imrpessa com sucesso! Pressione qualquer tecla para continuar...\n\n");
+                                
+                getch();
+                break;
+
+            case 6:
+                printf("\n\n 6. Ler o final da fila\n\n");
+                int k;
+
+                if(le_final(fila, &k) == -1)
+                    printf("Falha! A fila esta vazia. Aperte qualquer tecla para continuar...\n\n");
+                else
+                    printf("O ultimo elemento da fila eh: %d. Aperte qualquer tecla para continuar...\n\n", k);
+
+                getch();
+                break;
+        
+             default:
+                printf("\nPressione qualquer tecla para FINALIZAR...\n\n");
+                getch();
+        
+        }
+    } while(op != 7);
+
+    return 0;    
+}
